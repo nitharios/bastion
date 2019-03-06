@@ -5,7 +5,7 @@ import (
 
 	"github.com/gorilla/mux"
 	v0 "github.com/nitharios/bastion/api/v0"
-	log "github.com/nitharios/bastion/logger"
+	logger "github.com/nitharios/bastion/logger"
 )
 
 func New() *mux.Router {
@@ -14,8 +14,7 @@ func New() *mux.Router {
 	for _, route := range v0.Router {
 		var handler http.Handler
 
-		handler = route.HandlerFunc
-		handler = log.Logger(handler, route.Name)
+		handler = logger.Log(route.HandlerFunc, route.Name)
 
 		router.
 			Methods(route.Method).
