@@ -14,6 +14,10 @@ func New() *echo.Echo {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	// Version Routing
+	e.Group("/v1")
+	// TODO: Build out the rest of the v1 routes
+
 	// Routes
 	e.GET("/", hello)
 
