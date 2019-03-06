@@ -1,10 +1,10 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	v1 "github.com/nitharios/bastion/router/v1"
 )
 
 func New() *echo.Echo {
@@ -15,16 +15,11 @@ func New() *echo.Echo {
 	e.Use(middleware.Recover())
 
 	// Version Routing
-	e.Group("/v1")
+	versionOne := e.Group("/v1")
 	// TODO: Build out the rest of the v1 routes
-
-	// Routes
-	e.GET("/", hello)
+	for _, route := range v1.Routes {
+		versionOne.Match(route.Methods, route.PathName, route.HandlerFunc)
+	}
 
 	return e
-}
-
-// Handler
-func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
 }
