@@ -1,4 +1,4 @@
-module bastion
+module github.com/nitharios/bastion
 
 require (
 	github.com/gorilla/mux v1.7.0
