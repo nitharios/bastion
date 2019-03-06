@@ -11,7 +11,7 @@ import (
 	"time"
 
 	_ "github.com/joho/godotenv/autoload"
-	router "github.com/nitharios/bastion/api"
+	router "github.com/nitharios/bastion/router"
 )
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
-		Handler:      router.New(), // Pass instance of gorilla/mux in.
+		Handler:      router.New(), // Pass our instance of gorilla/mux in.
 	}
 
 	// Run our server in a goroutine so that it doesn't block.
@@ -55,6 +55,6 @@ func main() {
 	// Optionally, you could run srv.Shutdown in a goroutine and block on
 	// <-ctx.Done() if your application should wait for other services
 	// to finalize based on context cancellation.
-	log.Println("Shutting down")
+	log.Println("shutting down")
 	os.Exit(0)
 }
