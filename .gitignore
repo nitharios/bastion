@@ -13,3 +13,5 @@
 
 .env
 bin/*
+
+bastion
