@@ -1,8 +1,10 @@
 BINARY=bastion
 BIN_PATH=bin
+RUN_ENV=$(shell cat .env | xargs)
 GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
+GOGET=$(GOCMD) get
 GOTEST=$(GOCMD) test
 
 all: build
@@ -14,7 +16,7 @@ release: clean generate build
 
 run:
 	$(GOBUILD) -o $(BIN_PATH)/$(BINARY) -v
-	env $(BIN_PATH)/$(BINARY)
+	env $(RUN_ENV) $(BIN_PATH)/$(BINARY)
 
 clean:
 	$(GOCLEAN)
