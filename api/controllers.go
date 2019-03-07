@@ -6,12 +6,12 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-//
+/********** Base URI **********/
 func Home(c echo.Context) error {
 	return c.String(http.StatusOK, "Hello from Home!")
 }
 
-// v1
+/********** Version 1 **********/
 func V1(c echo.Context) error {
 	return c.String(http.StatusOK, "Hello from v1!")
 }

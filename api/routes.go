@@ -12,6 +12,7 @@ type Route struct {
 
 type routes []Route
 
+/********** Version 1 **********/
 var v1 = routes{
 	Route{
 		[]string{"GET"},

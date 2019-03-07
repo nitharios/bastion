@@ -5,7 +5,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-func New(host string, port string) *echo.Echo {
+func New() *echo.Echo {
 	e := echo.New()
 	e.Any("/", Home)
 
