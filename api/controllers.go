@@ -21,6 +21,7 @@ func Animals(c echo.Context) error {
 }
 
 func Wildcard(c echo.Context) error {
+	c.JSON(404, map[string]interface{}{"message": "API endpoint not supported"})
 	req := c.Request()
 	url := c.Scheme() + "://" + req.Host + req.RequestURI[:4]
 	return c.Redirect(302, url)
