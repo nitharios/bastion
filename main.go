@@ -11,7 +11,7 @@ import (
 	"time"
 
 	_ "github.com/joho/godotenv/autoload"
-	router "github.com/nitharios/bastion/router"
+	api "github.com/nitharios/bastion/api"
 )
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
-		Handler:      router.New(), // Pass our instance of gorilla/mux in.
+		Handler:      api.New(HOST, PORT), // Pass our instance of gorilla/mux in.
 	}
 
 	// Run our server in a goroutine so that it doesn't block.
