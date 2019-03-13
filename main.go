@@ -10,7 +10,6 @@ import (
 	"os/signal"
 	"time"
 
-	_ "github.com/joho/godotenv/autoload"
 	api "github.com/nitharios/bastion/api"
 )
 
